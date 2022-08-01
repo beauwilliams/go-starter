@@ -14,10 +14,10 @@ import (
 	"strings"
 	"sync"
 
-	"allaboutapps.dev/aw/go-starter/internal/api"
-	"allaboutapps.dev/aw/go-starter/internal/api/router"
-	"allaboutapps.dev/aw/go-starter/internal/config"
-	"allaboutapps.dev/aw/go-starter/internal/types"
+	"dnpl-backend/internal/api"
+	"dnpl-backend/internal/api/router"
+	"dnpl-backend/internal/config"
+	"dnpl-backend/internal/types"
 	"github.com/rs/zerolog"
 )
 

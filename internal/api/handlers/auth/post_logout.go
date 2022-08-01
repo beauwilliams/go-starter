@@ -5,12 +5,12 @@ import (
 	"errors"
 	"net/http"
 
-	"allaboutapps.dev/aw/go-starter/internal/api"
-	"allaboutapps.dev/aw/go-starter/internal/api/auth"
-	"allaboutapps.dev/aw/go-starter/internal/models"
-	"allaboutapps.dev/aw/go-starter/internal/types"
-	"allaboutapps.dev/aw/go-starter/internal/util"
-	"allaboutapps.dev/aw/go-starter/internal/util/db"
+	"dnpl-backend/internal/api"
+	"dnpl-backend/internal/api/auth"
+	"dnpl-backend/internal/models"
+	"dnpl-backend/internal/types"
+	"dnpl-backend/internal/util"
+	"dnpl-backend/internal/util/db"
 	"github.com/labstack/echo/v4"
 	"github.com/volatiletech/sqlboiler/v4/boil"
 )

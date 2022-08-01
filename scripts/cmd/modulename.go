@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"log"
 
-	"allaboutapps.dev/aw/go-starter/scripts/internal/util"
+	"dnpl-backend/scripts/internal/util"
 	"github.com/spf13/cobra"
 )
 

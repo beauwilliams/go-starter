@@ -4,7 +4,8 @@
 # --- https://hub.docker.com/_/golang
 # --- https://github.com/microsoft/vscode-remote-try-go/blob/master/.devcontainer/Dockerfile
 ### -----------------------
-FROM golang:1.17.9-buster AS development
+# FROM golang:1.17.9-buster AS development
+FROM golang:1.18.4-buster AS development
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
@@ -28,11 +29,11 @@ RUN apt-get update \
     # Mandadory minimal linux packages
     # Installed at development stage and app stage
     # Do not forget to add mandadory linux packages to the final app Dockerfile stage below!
-    # 
+    #
     # -- START MANDADORY --
     ca-certificates \
     # --- END MANDADORY ---
-    # 
+    #
     # Development specific packages
     # Only installed at development stage and NOT available in the final Docker stage
     # based upon
@@ -59,7 +60,7 @@ RUN apt-get update \
     icu-devtools \
     tmux \
     # --- END DEVELOPMENT ---
-    # 
+    #
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -83,7 +84,7 @@ RUN mkdir -p /tmp/pgFormatter \
     && cd pgFormatter-5.2 \
     && perl Makefile.PL \
     && make && make install \
-    && rm -rf /tmp/pgFormatter 
+    && rm -rf /tmp/pgFormatter
 
 # go gotestsum: (this package should NOT be installed via go get)
 # https://github.com/gotestyourself/gotestsum/releases
@@ -92,7 +93,7 @@ RUN mkdir -p /tmp/gotestsum \
     && wget https://github.com/gotestyourself/gotestsum/releases/download/v1.8.0/gotestsum_1.8.0_linux_amd64.tar.gz \
     && tar xzf gotestsum_1.8.0_linux_amd64.tar.gz \
     && cp gotestsum /usr/local/bin/gotestsum \
-    && rm -rf /tmp/gotestsum 
+    && rm -rf /tmp/gotestsum
 
 # go linting: (this package should NOT be installed via go get)
 # https://github.com/golangci/golangci-lint#binary
@@ -100,13 +101,13 @@ RUN mkdir -p /tmp/gotestsum \
 RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
     | sh -s -- -b $(go env GOPATH)/bin v1.45.2
 
-# go swagger: (this package should NOT be installed via go get) 
+# go swagger: (this package should NOT be installed via go get)
 # https://github.com/go-swagger/go-swagger/releases
 RUN curl -o /usr/local/bin/swagger -L'#' \
     "https://github.com/go-swagger/go-swagger/releases/download/v0.29.0/swagger_linux_amd64" \
     && chmod +x /usr/local/bin/swagger
 
-# lichen: go license util 
+# lichen: go license util
 # TODO: Install from static binary as soon as it becomes available.
 # https://github.com/uw-labs/lichen/tags
 RUN go install github.com/uw-labs/lichen@v0.1.5
@@ -132,7 +133,7 @@ RUN mkdir -p /tmp/yq \
     && wget https://github.com/mikefarah/yq/releases/download/v4.24.2/yq_linux_amd64.tar.gz \
     && tar xzf yq_linux_amd64.tar.gz \
     && cp yq_linux_amd64 /usr/local/bin/yq \
-    && rm -rf /tmp/yq 
+    && rm -rf /tmp/yq
 
 # gsdev
 # The sole purpose of the "gsdev" cli util is to provide a handy short command for the following (all args are passed):
@@ -141,7 +142,7 @@ RUN printf '#!/bin/bash\nset -Eeo pipefail\ncd /app && go run -tags scripts ./sc
 
 # linux permissions / vscode support: Add user to avoid linux file permission issues
 # Detail: Inside the container, any mounted files/folders will have the exact same permissions
-# as outside the container - including the owner user ID (UID) and group ID (GID). 
+# as outside the container - including the owner user ID (UID) and group ID (GID).
 # Because of this, your container user will either need to have the same UID or be in a group with the same GID.
 # The actual name of the user / group does not matter. The first user on a machine typically gets a UID of 1000,
 # so most containers use this as the ID of the user to try to avoid this problem.
@@ -166,11 +167,11 @@ RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
     /home/$USERNAME/.vscode-server-insiders
 
 # linux permissions / vscode support: chown $GOPATH so $USERNAME can directly work with it
-# Note that this should be the final step after installing all build deps 
+# Note that this should be the final step after installing all build deps
 RUN mkdir -p /$GOPATH/pkg && chown -R $USERNAME /$GOPATH
 
 # $GOBIN is where our own compiled binaries will live and other go.mod / VSCode binaries will be installed.
-# It should always come AFTER our other $PATH segments and should be earliest targeted in stage "builder", 
+# It should always come AFTER our other $PATH segments and should be earliest targeted in stage "builder",
 # as /app/bin will the shadowed by a volume mount via docker-compose!
 # E.g. "which golangci-lint" should report "/go/bin" not "/app/bin" (where VSCode will place it).
 # https://github.com/go-modules-by-example/index/blob/master/010_tools/README.md#walk-through

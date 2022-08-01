@@ -13,7 +13,7 @@ import (
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/go-openapi/strfmt"
 
-	"allaboutapps.dev/aw/go-starter/internal/types"
+	"dnpl-backend/internal/types"
 )
 
 // NewPostLogoutRouteParams creates a new PostLogoutRouteParams object

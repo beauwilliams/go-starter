@@ -10,9 +10,9 @@ import (
 	"syscall"
 	"time"
 
-	"allaboutapps.dev/aw/go-starter/internal/api"
-	"allaboutapps.dev/aw/go-starter/internal/api/router"
-	"allaboutapps.dev/aw/go-starter/internal/config"
+	"dnpl-backend/internal/api"
+	"dnpl-backend/internal/api/router"
+	"dnpl-backend/internal/config"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"

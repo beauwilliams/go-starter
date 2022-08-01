@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"os"
 
-	"allaboutapps.dev/aw/go-starter/internal/config"
-	"allaboutapps.dev/aw/go-starter/internal/data"
-	dbutil "allaboutapps.dev/aw/go-starter/internal/util/db"
+	"dnpl-backend/internal/config"
+	"dnpl-backend/internal/data"
+	dbutil "dnpl-backend/internal/util/db"
 	"github.com/spf13/cobra"
 	"github.com/volatiletech/sqlboiler/v4/boil"
 )

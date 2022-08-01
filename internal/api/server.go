@@ -6,12 +6,12 @@ import (
 	"errors"
 	"fmt"
 
-	"allaboutapps.dev/aw/go-starter/internal/config"
-	"allaboutapps.dev/aw/go-starter/internal/i18n"
-	"allaboutapps.dev/aw/go-starter/internal/mailer"
-	"allaboutapps.dev/aw/go-starter/internal/mailer/transport"
-	"allaboutapps.dev/aw/go-starter/internal/push"
-	"allaboutapps.dev/aw/go-starter/internal/push/provider"
+	"dnpl-backend/internal/config"
+	"dnpl-backend/internal/i18n"
+	"dnpl-backend/internal/mailer"
+	"dnpl-backend/internal/mailer/transport"
+	"dnpl-backend/internal/push"
+	"dnpl-backend/internal/push/provider"
 	"github.com/labstack/echo/v4"
 	"github.com/rs/zerolog/log"
 

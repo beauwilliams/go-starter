@@ -3,7 +3,7 @@ package provider
 import (
 	"errors"
 
-	"allaboutapps.dev/aw/go-starter/internal/push"
+	"dnpl-backend/internal/push"
 	"github.com/rs/zerolog/log"
 )
 

@@ -3,8 +3,8 @@ package common
 import (
 	"path/filepath"
 
-	"allaboutapps.dev/aw/go-starter/internal/api"
-	"allaboutapps.dev/aw/go-starter/internal/api/middleware"
+	"dnpl-backend/internal/api"
+	"dnpl-backend/internal/api/middleware"
 	"github.com/labstack/echo/v4"
 )
 

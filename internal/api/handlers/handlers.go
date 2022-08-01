@@ -2,10 +2,10 @@
 package handlers
 
 import (
-	"allaboutapps.dev/aw/go-starter/internal/api"
-	"allaboutapps.dev/aw/go-starter/internal/api/handlers/auth"
-	"allaboutapps.dev/aw/go-starter/internal/api/handlers/common"
-	"allaboutapps.dev/aw/go-starter/internal/api/handlers/push"
+	"dnpl-backend/internal/api"
+	"dnpl-backend/internal/api/handlers/auth"
+	"dnpl-backend/internal/api/handlers/common"
+	"dnpl-backend/internal/api/handlers/push"
 	"github.com/labstack/echo/v4"
 )
 

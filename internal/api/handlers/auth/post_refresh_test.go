@@ -6,12 +6,12 @@ import (
 	"net/http"
 	"testing"
 
-	"allaboutapps.dev/aw/go-starter/internal/api"
-	"allaboutapps.dev/aw/go-starter/internal/api/handlers/auth"
-	"allaboutapps.dev/aw/go-starter/internal/api/httperrors"
-	"allaboutapps.dev/aw/go-starter/internal/api/middleware"
-	"allaboutapps.dev/aw/go-starter/internal/test"
-	"allaboutapps.dev/aw/go-starter/internal/types"
+	"dnpl-backend/internal/api"
+	"dnpl-backend/internal/api/handlers/auth"
+	"dnpl-backend/internal/api/httperrors"
+	"dnpl-backend/internal/api/middleware"
+	"dnpl-backend/internal/test"
+	"dnpl-backend/internal/types"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -9,9 +9,9 @@ import (
 	"sync"
 	"testing"
 
-	"allaboutapps.dev/aw/go-starter/internal/config"
-	"allaboutapps.dev/aw/go-starter/internal/test"
-	pUtil "allaboutapps.dev/aw/go-starter/internal/util"
+	"dnpl-backend/internal/config"
+	"dnpl-backend/internal/test"
+	pUtil "dnpl-backend/internal/util"
 	"github.com/stretchr/testify/require"
 )
 

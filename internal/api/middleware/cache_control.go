@@ -3,7 +3,7 @@ package middleware
 import (
 	"context"
 
-	"allaboutapps.dev/aw/go-starter/internal/util"
+	"dnpl-backend/internal/util"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
